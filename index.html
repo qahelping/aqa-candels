@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Мастер-класс по свечеварению</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: clamp(16px, 5vw, 64px); background: #f4eee5; color: #32251f; font: 1rem/1.5 system-ui, sans-serif; }
+    main { max-width: 36rem; margin: auto; padding: clamp(20px, 5vw, 48px); background: #fffdf8; border: 1px solid #e0d3c4; border-radius: 24px; }
+    h1 { margin: 4px 0 12px; font: 500 clamp(2rem, 5vw, 3rem)/1.08 Georgia, serif; }
+    .format { margin: 0; color: #82442d; font-weight: 650; }
+    .note { color: #65534a; margin: 0 0 24px; }
+    form { display: grid; gap: 16px; }
+    label { display: grid; gap: 5px; font-weight: 600; min-width: 0; }
+    input, select, button { width: 100%; min-width: 0; font: inherit; }
+    input, select { background: white; color: inherit; padding: 10px 12px; border: 1px solid #a99a8d; border-radius: 9px; }
+    input[type=file]::file-selector-button { font: inherit; margin-inline-end: 8px; }
+    button { padding: 12px; border: 0; border-radius: 9px; background: #82442d; color: white; font-weight: 650; cursor: pointer; }
+    button:disabled { opacity: .6; cursor: default; }
+    :focus-visible { outline: 3px solid #82442d; outline-offset: 3px; }
+    #status { margin: 0; }
+  </style>
+  <script src="./form.js" defer></script>
+</head>
+<body>
+  <main>
+    <p class="format">Офлайн-мастер-класс</p>
+    <h1>Запись на свечеварение</h1>
+    <p class="note">Все занятия начинаются в 19:00 по Минску. Это демонстрационная форма. Для проверки используйте тестовые данные и файл.</p>
+    <form>
+      <label>Имя и фамилия
+        <input name="fullName" autocomplete="name" pattern=".*\S.*" required>
+      </label>
+      <label>Email
+        <input name="email" type="email" autocomplete="email" required>
+      </label>
+      <label>Дата мастер-класса
+        <select name="session" required disabled></select>
+      </label>
+      <label>Чек об оплате
+        <input name="receipt" type="file" required>
+      </label>
+      <button type="submit" disabled>Отправить тестовую заявку</button>
+      <p id="status" role="status"></p>
+    </form>
+  </main>
+</body>
+</html>
